@@ -1,0 +1,98 @@
+<><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ToolHub
+  ادوات الامن السيبراني في مكان واحد ! &mdash; Sherlock &amp; Photon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="logo-wrap">
+        <svg class="logo" width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10.5" cy="10.5" r="6.5" stroke="#111111" stroke-width="1.8"/>
+          <path d="M15.5 15.5L21 21" stroke="#111111" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <h1 class="title">ToolHub</h1>
+        <h5>ادوات الامن السيبراني في مكان واحد !</h5>
+        
+      </div>
+      <p id="subtitle" class="subtitle">ضع اسم المستخدم الذي تريد البحث عنه بجميع حساباته</p>
+
+      <div class="tool-dropdown">
+        <button
+          type="button"
+          id="tool-dropdown-btn"
+          class="tool-dropdown-btn"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          <img id="tool-dropdown-icon" class="tool-icon" src="/icons/sherlock.png" alt="" />
+          <span id="tool-dropdown-label">Sherlock</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <ul id="tool-dropdown-menu" class="tool-dropdown-menu" role="listbox" hidden>
+          <li class="tool-option active" data-tool="sherlock" role="option" aria-selected="true">
+            <img class="tool-icon" src="/icons/sherlock.png" alt="" />
+            <span class="tool-option-text">
+              <span class="tool-option-name">Sherlock</span>
+              <span class="tool-option-desc">بحث عن اسم مستخدم عبر مئات المواقع</span>
+            </span>
+          </li>
+          <li class="tool-option" data-tool="photon" role="option" aria-selected="false">
+            <img class="tool-icon" src="/icons/photon.jpg" alt="" />
+            <span class="tool-option-text">
+              <span class="tool-option-name">Photon</span>
+              <span class="tool-option-desc">فحص موقع واستخراج الروابط والبيانات</span>
+            </span>
+          </li>
+          <li class="tool-option" data-tool="maigret" role="option" aria-selected="false">
+            <img class="tool-icon" src="/icons/maigret.png" alt="" />
+            <span class="tool-option-text">
+              <span class="tool-option-name">Maigret</span>
+              <span class="tool-option-desc">بحث موسّع عن اسم مستخدم مع تفاصيل إضافية</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <form id="search-form" class="search-form" autocomplete="off">
+        <input
+          id="username-input"
+          type="text"
+          class="username-input"
+          placeholder="أدخل اسم المستخدم..."
+          maxlength="64"
+          required
+        />
+        <button type="submit" id="search-btn" class="search-btn">بحث</button>
+      </form>
+
+      <p class="credit">
+        MADE BY
+        <a href="https://www.instagram.com/6v0_h?igsh=MXh2Nm5qZ2h4dmF5dQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">6v0_h</a>
+      </p>
+
+      <div id="status-area" class="status-area" hidden>
+        <div id="loading" class="loading" hidden>
+          <span class="spinner"></span>
+          <span>جاري البحث...</span>
+        </div>
+        <div id="summary" class="summary" hidden></div>
+        <div id="error-box" class="error-box" hidden></div>
+      </div>
+    </section>
+
+    <section id="results" class="results"></section>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
