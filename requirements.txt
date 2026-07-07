@@ -1,0 +1,9 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.7.0
+requests>=2.32.5
+tld>=0.13.0
+PySocks>=1.7.0
+maigret>=0.6.2
+tomli
+pandas
