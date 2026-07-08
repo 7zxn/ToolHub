@@ -151,12 +151,22 @@ async def run_subprocess_json(
             detail="تعذر تشغيل الأداة. تأكد من تثبيت Python بشكل صحيح.",
         )
 
-    if process.returncode not in (0, None) and not stdout:
+    if process.returncode not in (0, None):
         error_message = (
             stderr.decode("utf-8", errors="ignore").strip()
-            or f"حدث خطأ غير متوقع أثناء تشغيل {tool_label}."
+            or stdout.decode("utf-8", errors="ignore").strip()
+            or f"حدث خطأ غير متوقع أثناء تشغيل {tool_label} (Exit Code: {process.returncode})."
         )
-        raise HTTPException(status_code=500, detail=error_message)
+        # If it's a known success case but with non-zero code (sometimes happens with tools)
+        # we check if we have valid JSON in stdout first
+        raw_output = stdout.decode("utf-8", errors="ignore").strip()
+        if raw_output:
+            try:
+                json.loads(raw_output.splitlines()[-1])
+            except:
+                raise HTTPException(status_code=500, detail=error_message)
+        else:
+            raise HTTPException(status_code=500, detail=error_message)
 
     raw_output = stdout.decode("utf-8", errors="ignore").strip()
     if not raw_output:
