@@ -91,6 +91,18 @@
     input.placeholder = config.placeholder;
     subtitleEl.textContent = config.subtitle;
     input.value = "";
+    
+    // Update the main dropdown icon
+    const mainIcon = document.getElementById("tool-dropdown-icon");
+    if (mainIcon) {
+      const toolIcons = {
+        sherlock: "/icons/sherlock.png",
+        photon: "/icons/photon.jpg",
+        maigret: "/icons/maigret.png"
+      };
+      mainIcon.src = toolIcons[toolName];
+    }
+
     resetStatus();
     resultsEl.innerHTML = "";
     closeDropdown();
