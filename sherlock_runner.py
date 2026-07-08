@@ -41,7 +41,7 @@ import sys
 # Make sure the repository root (which contains the `sherlock_project`
 # package) is importable regardless of the current working directory the
 # subprocess was launched from.
-REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
@@ -69,7 +69,7 @@ def run(username: str, timeout: int) -> dict:
 
     try:
         local_data_path = os.path.join(
-            REPO_ROOT, "sherlock_project", "resources", "data.json"
+            REPO_ROOT, "sherlock_project", "data.json"
         )
         sites = SitesInformation(local_data_path if os.path.exists(local_data_path) else None)
     except Exception as sites_error:

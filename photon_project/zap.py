@@ -2,9 +2,9 @@ import re
 import requests
 import random
 
-from core.utils import verb, xml_parser
-from core.colors import run, good
-from plugins.wayback import time_machine
+from utils import verb, xml_parser
+from colors import run, good
+from wayback import time_machine
 
 
 def zap(input_url, archive, domain, host, internal, robots, proxies):

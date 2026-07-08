@@ -12,7 +12,7 @@ import time
 import warnings
 import random
 
-from core.colors import good, info, run, green, red, white, end, bad
+from colors import good, info, run, green, red, white, end, bad
 
 # Just a fancy ass banner
 print('''%s      ____  __          __
@@ -29,14 +29,14 @@ except ImportError:
     print('%s Photon runs only on Python 3.2 and above.' % info)
     quit()
 
-import core.config
-from core.config import INTELS
-from core.flash import flash
-from core.mirror import mirror
-from core.prompt import prompt
-from core.requester import requester
-from core.updater import updater
-from core.utils import (luhn,
+import config
+from config import INTELS
+from flash import flash
+from mirror import mirror
+from prompt import prompt
+from requester import requester
+from updater import updater
+from utils import (luhn,
                         proxy_type,
                         is_good_proxy,
                         top_level,
@@ -46,9 +46,9 @@ from core.utils import (luhn,
                         remove_regex,
                         timer,
                         writer)
-from core.regex import rintels, rendpoint, rhref, rscript, rentropy
+from regex import rintels, rendpoint, rhref, rscript, rentropy
 
-from core.zap import zap
+from zap import zap
 
 # Disable SSL related warnings
 warnings.filterwarnings('ignore')
@@ -163,7 +163,7 @@ everything = []
 bad_scripts = set()  # Unclean javascript file urls
 bad_intel = set() # needed for intel filtering
 
-core.config.verbose = verbose
+config.VERBOSE = verbose
 
 if headers:
     try:
@@ -199,7 +199,7 @@ except:
 if args.user_agent:
     user_agents = args.user_agent.split(',')
 else:
-    with open(sys.path[0] + '/core/user-agents.txt', 'r') as uas:
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'user-agents.txt'), 'r') as uas:
         user_agents = [agent.strip('\n') for agent in uas]
 
 
@@ -404,17 +404,17 @@ datasets = {
 
 if args.dns:
     print('%s Enumerating subdomains' % run)
-    from plugins.find_subdomains import find_subdomains
+    from find_subdomains import find_subdomains
     subdomains = find_subdomains(domain)
     print('%s %i subdomains found' % (info, len(subdomains)))
     writer([subdomains], ['subdomains'], output_dir)
     datasets['subdomains'] = subdomains
-    from plugins.dnsdumpster import dnsdumpster
+    from dnsdumpster import dnsdumpster
     print('%s Generating DNS map' % run)
     dnsdumpster(domain, output_dir)
 
 if args.export:
-    from plugins.exporter import exporter
+    from exporter import exporter
     # exporter(directory, format, datasets)
     exporter(output_dir, args.export, datasets)
 
