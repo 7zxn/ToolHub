@@ -94,10 +94,10 @@ def run(url: str, timeout: int, level: int) -> dict:
         try:
             process = subprocess.run(
                 cmd,
-                cwd=PHOTON_DIR,
+                cwd=BASE_DIR,
                 capture_output=True,
                 text=True,
-                timeout=timeout + 30,
+                timeout=timeout + 60,
             )
         except subprocess.TimeoutExpired:
             return build_error("انتهت مهلة الفحص. حاول مرة أخرى لاحقًا.", url)
