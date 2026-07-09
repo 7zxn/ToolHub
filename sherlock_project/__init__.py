@@ -14,11 +14,16 @@ def get_version() -> str:
     """Fetch the version number of the installed package."""
     try:
         return pkg_version("sherlock_project")
-    except PackageNotFoundError:
-        pyproject_path: pathlib.Path = pathlib.Path(__file__).resolve().parent.parent / "pyproject.toml"
-        with pyproject_path.open("rb") as f:
-            pyproject_data = tomli.load(f)
-        return pyproject_data["tool"]["poetry"]["version"]
+    except Exception:
+        try:
+            pyproject_path: pathlib.Path = pathlib.Path(__file__).resolve().parent.parent / "pyproject.toml"
+            if pyproject_path.exists():
+                with pyproject_path.open("rb") as f:
+                    pyproject_data = tomli.load(f)
+                return pyproject_data["tool"]["poetry"]["version"]
+        except Exception:
+            pass
+        return "0.15.0" # Fallback version
 
 # This variable is only used to check for ImportErrors induced by users running as script rather than as module or package
 import_error_test_var = None

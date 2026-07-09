@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/style.css" />
+<link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
   <main class="page">
@@ -32,7 +32,7 @@
           aria-haspopup="listbox"
           aria-expanded="false"
         >
-          <img id="tool-dropdown-icon" class="tool-icon" src="/icons/sherlock.png" alt="" />
+          <img id="tool-dropdown-icon" class="tool-icon" src="/static/icons/sherlock.png" alt="" />
           <span id="tool-dropdown-label">Sherlock</span>
           <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -40,21 +40,21 @@
         </button>
         <ul id="tool-dropdown-menu" class="tool-dropdown-menu" role="listbox" hidden>
           <li class="tool-option active" data-tool="sherlock" role="option" aria-selected="true">
-            <img class="tool-icon" src="/icons/sherlock.png" alt="" />
+            <img class="tool-icon" src="/static/icons/sherlock.png" alt="" />
             <span class="tool-option-text">
               <span class="tool-option-name">Sherlock</span>
               <span class="tool-option-desc">بحث عن اسم مستخدم عبر مئات المواقع</span>
             </span>
           </li>
           <li class="tool-option" data-tool="photon" role="option" aria-selected="false">
-            <img class="tool-icon" src="/icons/photon.jpg" alt="" />
+            <img class="tool-icon" src="/static/icons/photon.jpg" alt="" />
             <span class="tool-option-text">
               <span class="tool-option-name">Photon</span>
               <span class="tool-option-desc">فحص موقع واستخراج الروابط والبيانات</span>
             </span>
           </li>
           <li class="tool-option" data-tool="maigret" role="option" aria-selected="false">
-            <img class="tool-icon" src="/icons/maigret.png" alt="" />
+            <img class="tool-icon" src="/static/icons/maigret.png" alt="" />
             <span class="tool-option-text">
               <span class="tool-option-name">Maigret</span>
               <span class="tool-option-desc">بحث موسّع عن اسم مستخدم مع تفاصيل إضافية</span>
@@ -93,6 +93,6 @@
     <section id="results" class="results"></section>
   </main>
 
-  <script src="/script.js"></script>
+  <script src="/static/script.js"></script>
 </body>
 </html>

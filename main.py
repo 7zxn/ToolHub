@@ -253,4 +253,7 @@ async def search_username_maigret(payload: MaigretRequest):
 
 
 # Mount static files last so that the /api routes above take precedence.
-app.mount("/", StaticFiles(directory=STATIC_DIR, html=True), name="static")
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+@app.get("/")
+async def read_index():
+    return FileResponse(os.path.join(STATIC_DIR, "index.html"))

@@ -96,9 +96,9 @@
     const mainIcon = document.getElementById("tool-dropdown-icon");
     if (mainIcon) {
       const toolIcons = {
-        sherlock: "/icons/sherlock.png",
-        photon: "/icons/photon.jpg",
-        maigret: "/icons/maigret.png"
+        sherlock: "/static/icons/sherlock.png",
+        photon: "/static/icons/photon.jpg",
+        maigret: "/static/icons/maigret.png"
       };
       mainIcon.src = toolIcons[toolName];
     }

@@ -1,12 +1,13 @@
 :root {
-  --text-color: #111111;
-  --muted-color: #6b7280;
-  --border-color: #e5e7eb;
-  --accent-color: #111111;
-  --success-color: #111111;
-  --error-color: #111111;
-  --bg-color: #ffffff;
-  --card-hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --text-color: #f3f4f6;
+  --muted-color: #9ca3af;
+  --border-color: #374151;
+  --accent-color: #ffffff;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --bg-color: #000000;
+  --card-bg: #111111;
+  --card-hover-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
 }
 
 * {
@@ -55,6 +56,11 @@ html, body {
   animation: fade-in 0.5s ease;
 }
 
+/* Update SVG colors for Dark Mode */
+.logo circle, .logo path {
+  stroke: #ffffff;
+}
+
 .title {
   font-size: 2.5rem;
   font-weight: 800;
@@ -89,15 +95,15 @@ html, body {
   padding: 12px 20px;
   border: 1.5px solid var(--border-color);
   border-radius: 12px;
-  background: #f9fafb;
+  background: #111111;
   color: var(--text-color);
   cursor: pointer;
   transition: border-color 0.15s ease, background 0.15s ease;
 }
 
 .tool-dropdown-btn:hover {
-  border-color: #c7cbd1;
-  background: #f3f4f6;
+  border-color: #4b5563;
+  background: #1f2937;
 }
 
 .tool-dropdown-btn .chevron {
@@ -122,10 +128,10 @@ html, body {
   margin: 0;
   padding: 6px;
   list-style: none;
-  background: #fff;
+  background: #111111;
   border: 1px solid var(--border-color);
   border-radius: 14px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
   text-align: right;
   animation: fade-in-up 0.15s ease both;
 }
@@ -141,11 +147,11 @@ html, body {
 }
 
 .tool-option:hover {
-  background: #f3f4f6;
+  background: #1f2937;
 }
 
 .tool-option.active {
-  background: #f3f4f6;
+  background: #1f2937;
 }
 
 .tool-option-name {
@@ -175,22 +181,22 @@ html, body {
   border-radius: 14px;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  background: #fff;
+  background: #111111;
   color: var(--text-color);
   text-align: center;
 }
 
 .username-input::placeholder {
-  color: #9ca3af;
+  color: #4b5563;
 }
 
 .username-input:hover {
-  border-color: #c7cbd1;
+  border-color: #4b5563;
 }
 
 .username-input:focus {
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 4px rgba(17, 17, 17, 0.06);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
 }
 
 .search-btn {
@@ -199,7 +205,7 @@ html, body {
   font-size: 1.05rem;
   font-family: inherit;
   font-weight: 700;
-  color: #fff;
+  color: #000;
   background: var(--accent-color);
   border: none;
   border-radius: 14px;
@@ -208,7 +214,7 @@ html, body {
 }
 
 .search-btn:hover:not(:disabled) {
-  opacity: 0.88;
+  opacity: 0.9;
   transform: translateY(-1px);
 }
 
@@ -225,12 +231,12 @@ html, body {
   margin: 14px 0 0;
   font-size: 0.72rem;
   letter-spacing: 0.03em;
-  color: #9ca3af;
+  color: #4b5563;
   font-weight: 500;
 }
 
 .credit a {
-  color: #9ca3af;
+  color: #4b5563;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.15s ease;
@@ -276,9 +282,9 @@ html, body {
 }
 
 .error-box {
-  background: #fef2f2;
-  color: #b91c1c;
-  border: 1px solid #fecaca;
+  background: #450a0a;
+  color: #fca5a5;
+  border: 1px solid #7f1d1d;
   padding: 14px 18px;
   border-radius: 12px;
   font-size: 0.95rem;
@@ -305,7 +311,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: #fff;
+  background: var(--card-bg);
   transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
   animation: fade-in-up 0.35s ease both;
 }
@@ -313,7 +319,7 @@ html, body {
 .result-card:hover {
   box-shadow: var(--card-hover-shadow);
   transform: translateY(-2px);
-  border-color: #d1d5db;
+  border-color: #4b5563;
 }
 
 .result-header {
@@ -345,7 +351,7 @@ html, body {
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-  filter: grayscale(100%);
+  filter: grayscale(100%) invert(100%);
 }
 
 .tool-option .tool-icon {
@@ -388,7 +394,7 @@ html, body {
 
 .result-open-btn:hover {
   background: var(--text-color);
-  color: #fff;
+  color: #000;
 }
 
 .empty-state {
